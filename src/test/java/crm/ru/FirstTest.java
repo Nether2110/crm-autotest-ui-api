@@ -16,7 +16,7 @@ public class FirstTest {
     @BeforeAll
         public static void setup(){
         Configuration.baseUrl = "http://localhost:8080/";
-        Configuration.timeout = 60_000;
+        Configuration.timeout = 10_000;
         Configuration.pageLoadTimeout = 30_000;
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
@@ -34,6 +34,19 @@ public class FirstTest {
         $x("//uL[@role='menu']//a[contains(@href,'User/view')]").should(Condition.visible).click();
         String actualText = $x("//div[@data-name = 'userName' and @class='field']").getText();
         Assertions.assertEquals("admin", actualText, "User Name не равен ожидаемому");
+
+    }
+
+    @Test
+    public void testLogOutButton() {
+        Selenide.open("");
+        $("#field-userName").setValue("admin");
+        $x("//input[@id='field-password']").setValue("admin");
+        $x("//button[text()='Log in']").click();
+        $("#nav-menu-dropdown").click();
+        $x("//ul[@role='menu']//a[@data-name='logout']").should(Condition.visible).click();
+        $x("//button[text()='Log in']").shouldBe(Condition.visible.because("кнопка должна быть"));
+
 
     }
 
