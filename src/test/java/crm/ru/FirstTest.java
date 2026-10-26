@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -45,8 +48,23 @@ public class FirstTest {
         $("#nav-menu-dropdown").click();
         $x("//ul[@role='menu']//a[@data-name='logout']").should(Condition.visible).click();
         $x("//button[text()='Log in']").shouldBe(Condition.visible);
-        Assertions.assertTrue($x("//button[text()='Log in']").isDisplayed(),
-                "Пользователь должен быть перенаправлен на страницу авторизации");
+        Assertions.assertTrue($x("//button[text()='Log in']").isDisplayed(), "Пользователь должен быть перенаправлен на страницу авторизации");
+    }
+
+
+    @Test
+    public void testWrongPassword() {
+        Selenide.open("");
+        $("#field-userName").setValue("admin");
+        $x("//input[@id='field-password']").setValue("admin1");
+        $x("//button[text()='Log in']").click();
+        $("#notification").shouldHave(text("Wrong").because("Ошибка с текстом отсутствует"));
+
+        //последние 2 строчки чисто код ради кода, я не понял как сделать через ассерты проверку,
+        // с нейронкой нагуглилось,что junit не успевает обработать этот анимированный баннер
+        String actualText = $("#notification").getText();
+        Assertions.assertTrue(actualText.contains("Wrong"));
+
     }
 
     @AfterAll
