@@ -14,14 +14,14 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class FirstTest {
     @BeforeAll
-        public static void setup(){
+    public static void setup() {
         Configuration.baseUrl = "http://localhost:8080/";
         Configuration.timeout = 10_000;
         Configuration.pageLoadTimeout = 30_000;
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
-
     }
+
     @Test
     public void test() {
         Selenide.open("");
@@ -34,7 +34,6 @@ public class FirstTest {
         $x("//uL[@role='menu']//a[contains(@href,'User/view')]").should(Condition.visible).click();
         String actualText = $x("//div[@data-name = 'userName' and @class='field']").getText();
         Assertions.assertEquals("admin", actualText, "User Name не равен ожидаемому");
-
     }
 
     @Test
@@ -45,14 +44,13 @@ public class FirstTest {
         $x("//button[text()='Log in']").click();
         $("#nav-menu-dropdown").click();
         $x("//ul[@role='menu']//a[@data-name='logout']").should(Condition.visible).click();
-        $x("//button[text()='Log in']").shouldBe(Condition.visible.because("кнопка должна быть"));
-
-
+        $x("//button[text()='Log in']").shouldBe(Condition.visible);
+        Assertions.assertTrue($x("//button[text()='Log in']").isDisplayed(),
+                "Пользователь должен быть перенаправлен на страницу авторизации");
     }
 
     @AfterAll
-    public static void close(){
+    public static void close() {
         Selenide.closeWebDriver();
     }
-
 }
