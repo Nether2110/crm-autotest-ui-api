@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -58,13 +58,16 @@ public class FirstTest {
         $("#field-userName").setValue("admin");
         $x("//input[@id='field-password']").setValue("admin1");
         $x("//button[text()='Log in']").click();
-        $("#notification").shouldHave(text("Wrong").because("Ошибка с текстом отсутствует"));
 
-        //последние 2 строчки чисто код ради кода, я не понял как сделать через ассерты проверку,
-        // с нейронкой нагуглилось,что junit не успевает обработать этот анимированный баннер
+        //$("#notification").shouldHave(text("Wrong").because("Ошибка с текстом отсутствует"));
+
+        $("#notification").shouldNotBe(Condition.empty);
+
+
         String actualText = $("#notification").getText();
-        Assertions.assertTrue(actualText.contains("Wrong"));
 
+        System.out.println("Текст ошибки  " + actualText);
+        Assertions.assertTrue(actualText.contains("Wrong"));
     }
 
     @AfterAll
