@@ -1,6 +1,5 @@
 package crm.ru;
 
-import com.codeborne.selenide.AssertionMode;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -9,13 +8,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class FirstTest {
+
     @BeforeAll
     public static void setup() {
         Configuration.baseUrl = "http://localhost:8080/";
