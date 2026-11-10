@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class MainPage {
+public class MainPage extends BasePage {
 
     private final SelenideElement openHeaderDropDown = $("#nav-menu-dropdown").as("Три точки в хедере");
     private final SelenideElement userViewButton = $x("//uL[@role='menu']//a[contains(@href,'User/view')]");

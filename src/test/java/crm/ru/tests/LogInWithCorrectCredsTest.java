@@ -5,7 +5,7 @@ import crm.ru.pages.LoginPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class LogInWithCorrectCreds extends BaseTest {
+public class LogInWithCorrectCredsTest extends BaseTest {
 
 
     @Test
