@@ -5,6 +5,12 @@ import crm.ru.pages.LoginPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/*
+1)надо ли в тесте удалять созданного нового юзера, или это потом как то делается из базы, чтобы каждый раз не менять
+данные новые?
+2)как обойти логины, и сразу оказаться в мейнпейдже
+ */
+
 public class ContactCreateTest extends BaseTest {
     @Test
 
