@@ -11,7 +11,7 @@ public class MainPage extends BasePage {
     private final SelenideElement openHeaderDropDown = $("#nav-menu-dropdown").as("Три точки в хедере");
     private final SelenideElement userViewButton = $x("//uL[@role='menu']//a[contains(@href,'User/view')]");
     private final SelenideElement logOutButton = $x("//ul[@role='menu']//a[@data-name='logout']");
-
+    private final SelenideElement contactLink = $("li[data-name='Contact'] a");
 
     public MainPage() {
         $("a.notifications-button").should(Condition.visible.because("Главная страница не открылась"));
@@ -30,5 +30,10 @@ public class MainPage extends BasePage {
     public LoginPage clickLogOutButton() {
         logOutButton.should(Condition.visible).click();
         return new LoginPage();
+    }
+
+    public ContactPage contactLink() {
+        contactLink.click();
+        return new ContactPage();
     }
 }
