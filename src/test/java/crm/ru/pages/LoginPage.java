@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     private final SelenideElement usernameInput = $("#field-userName");
     private final SelenideElement passwordInput = $x("//input[@id='field-password']");
@@ -30,18 +30,17 @@ public class LoginPage {
         return new MainPage();
     }
 
-    //при обычном логинбаттон клике мы ожидали перехода на мейнпейдж, и не попадали туда, тесты падали
     public LoginPage clickLoginButtonWithWrongCred() {
         loginButton.click();
         return this;
     }
 
     public String getErrorTextFromWrongCredNotification() {
-        return wrongCredNotification.shouldNotBe(Condition.empty).getText();
+        return getText(wrongCredNotification);
     }
 
     public String getErrorTextFromUsernameEmptyNotification() {
-        return emptyUsernameNotification.shouldNotBe(Condition.empty).getText();
+        return getText(emptyUsernameNotification);
     }
 
     public boolean isLoginButtonVisible() {
