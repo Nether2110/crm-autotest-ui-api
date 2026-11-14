@@ -9,7 +9,6 @@ public class ContactPage extends BasePage {
 
     private final SelenideElement createContactButton = $("a[data-action='create'][href='#Contact/create']");
 
-
     public ContactCreatePage clickCreateContactButton() {
         createContactButton.should(Condition.visible).click();
         return new ContactCreatePage();

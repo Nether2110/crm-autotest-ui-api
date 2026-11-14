@@ -14,7 +14,6 @@ public class LoginPage extends BasePage {
     private final SelenideElement wrongCredNotification = $("#notification");
     private final SelenideElement emptyUsernameNotification = $x("//div[contains(@class, 'popover-content') and text()='Username can not be empty']\n");
 
-
     public LoginPage setUsernameInput(String usernameValue) {
         usernameInput.setValue(usernameValue);
         return this;

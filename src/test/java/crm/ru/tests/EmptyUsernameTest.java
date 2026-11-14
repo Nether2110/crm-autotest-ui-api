@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 public class EmptyUsernameTest extends BaseTest {
 
     @Test
-
     public void testEmptyUsername() {
         String actualText = Selenide.open("", LoginPage.class)
                 .setPasswordInput("admin")

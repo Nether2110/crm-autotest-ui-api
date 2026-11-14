@@ -10,10 +10,9 @@ import org.junit.jupiter.api.Test;
 данные новые?
 2)как обойти логины, и сразу оказаться в мейнпейдже
  */
-
 public class ContactCreateTest extends BaseTest {
-    @Test
 
+    @Test
     public void ContactCreate() {
         String actualText = Selenide.open("", LoginPage.class)
                 .setUsernameInput("admin")

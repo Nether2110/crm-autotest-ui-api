@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ContactCreatePage extends BasePage {
 
-
     private final SelenideElement lastNameInput = $("input[data-name='lastName']");
     private final SelenideElement saveButton = $("button[data-action='save']");
 
@@ -16,7 +15,6 @@ public class ContactCreatePage extends BasePage {
     }
 
     public ContactSettingPage clickSaveButton() {
-
         saveButton.click();
         return new ContactSettingPage();
     }

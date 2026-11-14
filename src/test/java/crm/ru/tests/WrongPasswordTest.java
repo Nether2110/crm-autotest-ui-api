@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class WrongPasswordTest extends BaseTest {
 
-
     @Test
     public void testWrongPassword() {
         String actualText = Selenide.open("", LoginPage.class)

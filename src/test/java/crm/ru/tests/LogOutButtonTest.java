@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class LogOutButtonTest extends BaseTest {
 
-
     @Test
     public void testLogOutButton() {
         boolean loginButtonVisible = Selenide.open("", LoginPage.class)

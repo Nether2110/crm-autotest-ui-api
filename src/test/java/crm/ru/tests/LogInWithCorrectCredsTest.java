@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class LogInWithCorrectCredsTest extends BaseTest {
 
-
     @Test
     public void test() {
         String actualText = Selenide.open("", LoginPage.class)

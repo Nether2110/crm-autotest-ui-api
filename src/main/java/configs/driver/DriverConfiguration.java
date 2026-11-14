@@ -7,7 +7,6 @@ import configs.ConfigsProvider;
 public class DriverConfiguration {
 
     public static void setup() {
-
         Configuration.baseUrl = ConfigsProvider.TEST_CONFIG.baseUrl();
         Configuration.timeout = ConfigsProvider.TEST_CONFIG.timeout();
         Configuration.pageLoadTimeout = ConfigsProvider.TEST_CONFIG.pageLoadTimeout();
