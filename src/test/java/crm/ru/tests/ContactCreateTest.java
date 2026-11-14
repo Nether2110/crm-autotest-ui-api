@@ -13,14 +13,14 @@ import org.junit.jupiter.api.Test;
 public class ContactCreateTest extends BaseTest {
 
     @Test
-    public void ContactCreate() {
+    public void contactCreate() {
         String actualText = Selenide.open("", LoginPage.class)
                 .setUsernameInput("admin")
                 .setPasswordInput("admin")
                 .clickLoginButton()
                 .contactLink()
                 .clickCreateContactButton()
-                .setLastNameInput("qwert")
+                .setLastNameInput("qwert")// TODO: Рандомить через библиотеку DataFaker
                 .clickSaveButton()
                 .getContactName();
 
